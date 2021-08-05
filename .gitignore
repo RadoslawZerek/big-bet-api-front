@@ -25,6 +25,8 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+node_modules/
+target/frontend/
 **/build/
 **/out/
 
