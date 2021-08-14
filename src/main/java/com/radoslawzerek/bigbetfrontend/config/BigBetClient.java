@@ -11,6 +11,7 @@ import com.radoslawzerek.bigbetfrontend.pojo.LogInFeedback;
 import com.radoslawzerek.bigbetfrontend.pojo.SignUpFeedback;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +25,24 @@ import java.util.List;
 
 import static java.util.Optional.ofNullable;
 
+@RequiredArgsConstructor
 @UIScope
 @SpringComponent
 public class BigBetClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BigBetClient.class);
-    private final RestTemplate restTemplate;
-    private final BigBetApiConfig bigBetApiConfig;
 
     @Autowired
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    private final BigBetApiConfig bigBetApiConfig;
+
+   /* @Autowired
     public BigBetClient(RestTemplate restTemplate, BigBetApiConfig bigBetApiConfig) {
         this.restTemplate = restTemplate;
         this.bigBetApiConfig = bigBetApiConfig;
-    }
+    }*/
 
     public List<BetProspectDto> getCurrentBetProspects(BetProspectsRequestDto prospectsRequest) {
         URI url = createUriForGetOddsProspects();

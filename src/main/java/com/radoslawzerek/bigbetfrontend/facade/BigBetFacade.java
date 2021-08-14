@@ -9,20 +9,23 @@ import com.radoslawzerek.bigbetfrontend.pojo.LogInFeedback;
 import com.radoslawzerek.bigbetfrontend.pojo.SignUpFeedback;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @UIScope
 @SpringComponent
 public class BigBetFacade {
 
+    @Autowired
     private final BigBetClient bigBetClient;
 
-    @Autowired
+    /*@Autowired
     public BigBetFacade(BigBetClient bigBetClient) {
         this.bigBetClient = bigBetClient;
-    }
+    }*/
 
     public SignUpFeedback signUserUp(UserDto user) {
         return bigBetClient.signUserUp(user);
