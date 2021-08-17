@@ -58,7 +58,7 @@ public class BigBetClient {
 
     private URI createUriForGetOddsProspects() {
         return UriComponentsBuilder.fromHttpUrl(bigBetApiConfig.getBetsApiEndpoint() +
-                "/betprospects")
+                "/prospects")
                 .build().encode().toUri();
     }
 
@@ -179,7 +179,7 @@ public class BigBetClient {
 
     private URI createUriForAddBet() {
         return UriComponentsBuilder.fromHttpUrl(bigBetApiConfig.getBetsApiEndpoint() +
-                "/bets")
+                "/addBet")
                 .build().encode().toUri();
     }
 
@@ -201,7 +201,7 @@ public class BigBetClient {
 
     private URI createUriForGetAllBets() {
         return UriComponentsBuilder.fromHttpUrl(bigBetApiConfig.getBetsApiEndpoint() +
-                "/bets")
+                "/allBets")
                 .build().encode().toUri();
     }
 
@@ -228,8 +228,7 @@ public class BigBetClient {
     }
 
     private URI createUriForDeleteBet(Long betId) {
-        return UriComponentsBuilder.fromHttpUrl(bigBetApiConfig.getBetsApiEndpoint() +
-                "/bets/" + betId)
+        return UriComponentsBuilder.fromHttpUrl(bigBetApiConfig.getBetsApiEndpoint() + betId)
                 .build().encode().toUri();
     }
 }
